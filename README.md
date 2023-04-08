@@ -5,4 +5,4 @@ As I update this frequently, projects using it may need to run
 ```
 GOPROXY=direct go get -u
 ```
-This project targets RHEL 9.
+This project targets RHEL 9 on x86_64. At this time there are no plans to support other platforms.

@@ -15,5 +15,10 @@ periodically to ensure an old, cached version is not being used.
 
 This project targets RHEL 9 on x86_64. At this time there are no plans to support other platforms, though most likely it will work correctly on any POSIX-compliant x86_64 Linux distribution.
 
+For C implementations of some of the same algorithms, see the sister project ![here](https://github.com/kmazza2/crng).
+
 ## TODO
+* Implement function which returns random number provided by the OS
 * Implement LXM algorithm as an alternative to SplitMix64
+* Implement xoshiro256**
+* Implement general gamma distribution

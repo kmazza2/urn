@@ -2,10 +2,19 @@ package splitmix64
 
 import (
 	"io/ioutil"
+	"math"
 	"strconv"
 	"strings"
 	"testing"
 )
+
+func TestMaxUint64(t *testing.T) {
+	var go_max_uint64 uint64 = math.MaxUint64
+	var gcc_max_unsigned_long uint64 = 18446744073709551615
+	if go_max_uint64 != gcc_max_unsigned_long {
+		t.Error(`Golang max uint64 not gcc max unsigned long`)
+	}
+}
 
 func TestGeneratorAdvances(t *testing.T) {
 	var rng SplitMix64 = NewSplitMix64(uint64(0))

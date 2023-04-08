@@ -2,7 +2,7 @@
 ![image](urn_small.png)
 
 ## Goal
-The goal of this project is to provide reference-grade, pure Golang implementations of the highest quality (not necessarily fastest) random number generation algorithms known for all commonly encountered probability distributions. This will be accomplished by
+The goal of this project is to provide reference-grade, pure Golang implementations of the highest quality (not necessarily fastest) random number generation algorithms known for all commonly used probability distributions. This will be accomplished by
 * writing clear, idiomatic code in the standard Golang format, avoiding the use of type inference and difficult-to-understand constructs
 * providing thorough test suites of all implementated algorithms
 * clearly and thoroughly documenting all algorithm implementations and tests, including references to (publicly available) papers or books describing the underlying algorithms

@@ -5,7 +5,7 @@ type SplitMix64 struct {
 	state uint64
 }
 
-// Creates a new SplitMix64 object (which happens to be determined entirely by its state).
+// Creates a new SplitMix64 object (which happens to be determined entirely by its state, which on initialization is equal to its seed).
 func NewSplitMix64(seed uint64) SplitMix64 {
 	var rng SplitMix64 = SplitMix64{seed}
 	return rng

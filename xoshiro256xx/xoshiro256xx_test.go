@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"strings"
 	"testing"
+	"github.com/kmazza2/urn/float64rng"
 )
 
 // Make sure generator does not produce same value twice in a row.
@@ -86,4 +87,41 @@ func TestPanicOnMaxSeed(t *testing.T) {
 	}()
 	var _ Xoshiro256xx = NewXoshiro256xx(math.MaxUint64, math.MaxUint64, math.MaxUint64, math.MaxUint64)
 	t.Error(`Did not panic when constructed with all seeds math.MaxUint64`)
+}
+
+// Make sure correct values are produced when wrapped with Float64rng.
+func TestAgainstCReference_float64(t *testing.T) {
+	var raw_ref_str_data []byte
+	var err error
+	raw_ref_str_data, err = ioutil.ReadFile(`testdata/float64_from_xoshiro256xx`)
+	if err != nil {
+		t.Error(`Could not open file containing test data`)
+	}
+	var ref_str_data []string = strings.Split(string(raw_ref_str_data), "\n")
+	ref_str_data = ref_str_data[:len(ref_str_data)-1]
+	var ref_data []float64 = make([]float64, 100)
+	for i, str_num := range ref_str_data {
+		var converted_num float64
+		var err error
+		converted_num, err = strconv.ParseFloat(str_num, 64)
+		if err != nil {
+			t.Error(`Could not parse data`)
+		}
+		ref_data[i] = converted_num
+	}
+	var data []float64 = make([]float64, 100)
+	var src_rng Xoshiro256xx = NewXoshiro256xx(
+		16294208416658607535,
+		7960286522194355700,
+		487617019471545679,
+		17909611376780542444)
+	var rng float64rng.Float64rng = float64rng.NewFloat64rng(&src_rng)
+	for i := 0; i < 100; i++ {
+		data[i] = rng.Next()
+	}
+	for i := 0; i < 100; i++ {
+		if data[i] != ref_data[i] {
+			t.Error(`Generated data does not match reference data`)
+		}
+	}
 }

@@ -1,9 +1,9 @@
 package urandom
 
 import (
+	"encoding/binary"
 	"io"
 	"os"
-	"encoding/binary"
 )
 
 // Urandom is an empty struct, provided only for consistency with other RNG packages in this module.

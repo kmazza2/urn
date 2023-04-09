@@ -1,8 +1,8 @@
 package urandom
 
 import (
-	"testing"
 	"math"
+	"testing"
 )
 
 // Make sure the generator doesn't produce the same value twice in a row.
@@ -24,7 +24,7 @@ func TestExpectation(t *testing.T) {
 	for i := 0; i < samples; i++ {
 		mean += float64(rng.Next()) / float64(samples)
 	}
-	if math.Abs(expectation - mean) > 1e17 {
+	if math.Abs(expectation-mean) > 1e17 {
 		t.Error(`Mean is far from expectation`)
 	}
 }

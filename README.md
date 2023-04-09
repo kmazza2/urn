@@ -20,6 +20,9 @@ For C implementations of some of the same algorithms, see the sister project ![h
 ## TODO
 * ~~Implement function which returns random number provided by the OS~~
 * Implement LXM algorithm as an alternative to SplitMix64
-* Implement xoshiro256**
+* ~~Implement xoshiro256**~~
 * Implement general gamma distribution
 * Implement jump functions (for xoshiro256**)
+* Implement discrete uniform distribution
+* Implement general finite discrete distribution with given masses
+* Implement hypergeometric distribution

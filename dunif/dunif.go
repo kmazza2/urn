@@ -8,7 +8,7 @@ type Float64rng interface {
 // Dunifrng objects contain a float64 RNG and a value n.
 type Dunifrng struct {
 	src Float64rng
-	n uint64
+	n   uint64
 }
 
 // Constructor for Float64rng objects. Intended to prevent client code from directly modifying RNG state after initialization.

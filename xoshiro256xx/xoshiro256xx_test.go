@@ -1,12 +1,12 @@
 package xoshiro256xx
 
 import (
+	"github.com/kmazza2/urn/float64rng"
 	"io/ioutil"
 	"math"
 	"strconv"
 	"strings"
 	"testing"
-	"github.com/kmazza2/urn/float64rng"
 )
 
 // Make sure generator does not produce same value twice in a row.

@@ -28,3 +28,4 @@ For C implementations of some of the same algorithms, see the sister project ![h
 * Implement hypergeometric distribution
 * consider unexporting interfaces (Float64rng, Uint64rng) if possible
 * Write tests for dunif, normal, ...
+* Check documentation

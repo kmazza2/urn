@@ -26,3 +26,5 @@ For C implementations of some of the same algorithms, see the sister project ![h
 * Implement discrete uniform distribution
 * Implement general finite discrete distribution with given masses
 * Implement hypergeometric distribution
+* consider unexporting interfaces (Float64rng, Uint64rng) if possible
+* Write tests for dunif, normal, ...

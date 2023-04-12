@@ -1,6 +1,6 @@
 package dunif
 
-// Any type with a parameter-free Next method returning float64 (in (0, 1)) can be used as a source generator for Dunif. The numbers returned by Next need to be approximately Uniform(0, 1).
+// Any type with a parameter-free Next method returning float64 (in (0, 1)) can be used as a source generator for Dunifrng. The numbers returned by Next need to be approximately Uniform(0, 1).
 type Float64rng interface {
 	Next() float64
 }

@@ -16,6 +16,11 @@ func NewUint64toFloat64(src u64r.Uint64rng) Uint64toFloat64 {
 
 // Generates the next pseudorandom value from the source uint64 generator, then converts it to a float64.
 func (rng Uint64toFloat64) Next() float64 {
-	var x uint64 = rng.src.Next()
-	return float64(x>>11) * float64(0x1.0p-53)
+	for {
+		var i uint64 = rng.src.Next()
+		var x float64 = float64(i>>11) * float64(0x1.0p-53)
+		if x != 0. && x != 1. {
+			return x
+		}
+	}
 }

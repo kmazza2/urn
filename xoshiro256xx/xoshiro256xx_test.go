@@ -1,7 +1,7 @@
 package xoshiro256xx
 
 import (
-	"github.com/kmazza2/urn/float64rng"
+	"github.com/kmazza2/urn/uint64tofloat64"
 	"io/ioutil"
 	"math"
 	"strconv"
@@ -89,7 +89,7 @@ func TestPanicOnMaxSeed(t *testing.T) {
 	t.Error(`Did not panic when constructed with all seeds math.MaxUint64`)
 }
 
-// Make sure correct values are produced when wrapped with Float64rng.
+// Make sure correct values are produced when wrapped with Uint64toFloat64.
 func TestAgainstCReference_float64(t *testing.T) {
 	var raw_ref_str_data []byte
 	var err error
@@ -115,7 +115,7 @@ func TestAgainstCReference_float64(t *testing.T) {
 		7960286522194355700,
 		487617019471545679,
 		17909611376780542444)
-	var rng float64rng.Float64rng = float64rng.NewFloat64rng(&src_rng)
+	var rng uint64tofloat64.Uint64toFloat64 = uint64tofloat64.NewUint64toFloat64(&src_rng)
 	for i := 0; i < 100; i++ {
 		data[i] = rng.Next()
 	}

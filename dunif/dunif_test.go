@@ -1,7 +1,7 @@
 package dunif
 
 import (
-	f64r "github.com/kmazza2/urn/float64rng"
+	"github.com/kmazza2/urn/uint64tofloat64"
 	x256xx "github.com/kmazza2/urn/xoshiro256xx"
 	"testing"
 )
@@ -12,7 +12,7 @@ func TestGenerator(t *testing.T) {
 		7960286522194355700,
 		487617019471545679,
 		17909611376780542444)
-	var rng f64r.Float64rng = f64r.NewFloat64rng(&src_rng)
+	var rng uint64tofloat64.Uint64toFloat64 = uint64tofloat64.NewUint64toFloat64(&src_rng)
 	var dunif_rng = NewDunifrng(rng, 20)
 	for i := 0; i < 10000; i++ {
 		_ = dunif_rng.Next()

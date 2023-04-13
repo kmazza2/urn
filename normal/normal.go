@@ -2,16 +2,12 @@ package normal
 
 import (
 	"math"
+	f64r "github.com/kmazza2/urn/float64rng"
 )
-
-// Any type with a parameter-free Next method returning float64 (in (0, 1)) can be used as a source generator for Normalrng. The numbers returned by Next need to be approximately Uniform(0, 1).
-type Float64rng interface {
-	Next() float64
-}
 
 // Normalrng objects contain a float64 RNG, a bool indicating if the next random number produced has been cached, a float64 holding cached random numbers, a flot64 for the variance, and a float64 for the mean.
 type Normalrng struct {
-	src      Float64rng
+	src      f64r.Float64rng
 	cached   bool
 	cache    float64
 	variance float64
@@ -19,7 +15,7 @@ type Normalrng struct {
 }
 
 // Constructor for Normalrng objects. Intended to prevent client code from directly modifying RNG state after initialization.
-func NewNormalrng(src Float64rng, variance float64, mean float64) Normalrng {
+func NewNormalrng(src f64r.Float64rng, variance float64, mean float64) Normalrng {
 	if variance <= 0 {
 		panic(`variance must be greater than 0`)
 	}

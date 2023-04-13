@@ -1,18 +1,17 @@
 package dunif
 
-// Any type with a parameter-free Next method returning float64 (in (0, 1)) can be used as a source generator for Dunifrng. The numbers returned by Next need to be approximately Uniform(0, 1).
-type Float64rng interface {
-	Next() float64
-}
+import (
+	f64r "github.com/kmazza2/urn/float64rng"
+)
 
 // Dunifrng objects contain a float64 RNG and a value n.
 type Dunifrng struct {
-	src Float64rng
+	src f64r.Float64rng
 	n   uint64
 }
 
 // Constructor for Float64rng objects. Intended to prevent client code from directly modifying RNG state after initialization.
-func NewDunifrng(src Float64rng, n uint64) Dunifrng {
+func NewDunifrng(src f64r.Float64rng, n uint64) Dunifrng {
 	if n == 0 {
 		panic(`n must be greater than or equal to 1`)
 	}

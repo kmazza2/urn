@@ -1,8 +1,8 @@
 package normal
 
 import (
-	"math"
 	f64r "github.com/kmazza2/urn/float64rng"
+	"math"
 )
 
 // Normalrng objects contain a float64 RNG, a bool indicating if the next random number produced has been cached, a float64 holding cached random numbers, a float64 for the variance, and a float64 for the mean.

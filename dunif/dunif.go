@@ -10,7 +10,7 @@ type Dunifrng struct {
 	n   uint64
 }
 
-// Constructor for Float64rng objects. Intended to prevent client code from directly modifying RNG state after initialization.
+// Constructor for Dunifrng objects. Intended to prevent client code from directly modifying RNG state after initialization.
 func NewDunifrng(src f64r.Float64rng, n uint64) Dunifrng {
 	if n == 0 {
 		panic(`n must be greater than or equal to 1`)

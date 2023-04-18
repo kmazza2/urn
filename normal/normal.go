@@ -10,16 +10,16 @@ type Normalrng struct {
 	src      f64r.Float64rng
 	cached   bool
 	cache    float64
-	variance float64
 	mean     float64
+	variance float64
 }
 
 // Constructor for Normalrng objects. Intended to prevent client code from directly modifying RNG state after initialization.
-func NewNormalrng(src f64r.Float64rng, variance float64, mean float64) Normalrng {
+func NewNormalrng(src f64r.Float64rng, mean float64, variance float64) Normalrng {
 	if variance <= 0 {
 		panic(`variance must be greater than 0`)
 	}
-	return Normalrng{src, false, 0., variance, mean}
+	return Normalrng{src, false, 0., mean, variance}
 }
 
 // Generates the next pseudorandom value.

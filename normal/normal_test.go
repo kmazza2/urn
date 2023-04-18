@@ -13,7 +13,7 @@ func TestGenerator(t *testing.T) {
 		487617019471545679,
 		17909611376780542444)
 	var rng uint64tofloat64.Uint64toFloat64 = uint64tofloat64.NewUint64toFloat64(&src_rng)
-	var normal_rng = NewNormalrng(rng, 2.5, -9.2)
+	var normal_rng = NewNormalrng(rng, -9.2, 2.5)
 	for i := 0; i < 10000; i++ {
 		_ = normal_rng.Next()
 	}
